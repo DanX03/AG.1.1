@@ -1,5 +1,5 @@
 void main() {
-        ejercicio6();
+        ejercicio9();
         int num1 = 10;
         int num2 = 20;
         char operator = '+';
@@ -146,13 +146,14 @@ void main() {
 
     void ejercicio6V2() {
 
-        int edad;
+        int edad =10;
         Scanner entrada = new Scanner(System.in);
 //
         while (edad < 0 || edad > 100) {
 //        System.out.println("Introduce tu edad: ");
             edad = entrada.nextInt();
-            if (edad < 0 || edad > 100) System.out.println("Edad fuera del rango de 0 a 100 años");
+            if (edad < 0 || edad > 100)
+                System.out.println("Edad fuera del rango de 0 a 100 años");
         }
 
        String salida = "Con " + edad + "años se te considera ";
@@ -174,14 +175,62 @@ void main() {
 
     void ejercicio7() {
 
-    int numero;
+    int num =0;
+    Scanner entrada =new Scanner(System.in);
+    String salida ="";
 
+        while ( num < 1) {
+        System.out.println("Introduce el numero hasta el que llega la serie: ");
+        num = entrada.nextInt();
+
+    }
+        for (int i = 1; i< num; i++) {
+            salida += i + ", ";
+        }
+
+        System.out.println(salida + num);
+    }
+
+
+    void ejercicio8() {
+
+        int num = 0;
+        Scanner entrada =new Scanner(System.in);
+        int suma = 0;
+        int positivos = 0;
+
+        while (num >= 0) {
+            suma += num;
+            if (num >0) {
+                positivos++;
+            }
+            System.out.println("Introduce el numero: ");
+            num = entrada.nextInt();
+            }
+
+        System.out.println("La suma de los " + positivos + "numeros positivos es: " + suma);
+
+    }
+
+
+    void ejercicio9() {
+
+    String unidad = "";
     Scanner entrada = new Scanner(System.in);
-        System.out.println("Introduce un numero: ");
 
+        System.out.print("Introduce la unidad a la que quieras convertir (C/F): ");
+        unidad = entrada.next();
 
+        switch (unidad) {
+            case "C" , "c" -> {
 
+            }
+            case "F", "f" -> {
 
-
+            }
+            default -> {
+                System.out.println("La unidad introducida no es valida");
+            }
+        }
     }
 
