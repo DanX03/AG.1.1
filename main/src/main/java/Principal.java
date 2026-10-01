@@ -1,18 +1,16 @@
 void main() {
-        ejercicio9();
-        int num1 = 10;
-        int num2 = 20;
-        char operator = '+';
-        int resultado;
+    ejercicio1();
+    ejercicio2();
+    ejercicio3();
+    ejercicio5();
+    ejercicio5V2();
+    ejercicio6();
+    ejercicio7();
+    ejercicio8();
+    ejercicio9();
+    ejercicio10();
 
-        switch (operator) {
-            case '+' -> {
-                resultado = num1 + num2;
-            }
-            default ->
-                    resultado = 0;
-        }
-        System.out.println(num1 + " " + operator + " " + num2 + " = " + resultado);
+
     }
 
     void ejercicio1() {
@@ -217,20 +215,59 @@ void main() {
 
     String unidad = "";
     Scanner entrada = new Scanner(System.in);
+    float temperatura = 0;
 
         System.out.print("Introduce la unidad a la que quieras convertir (C/F): ");
         unidad = entrada.next();
 
-        switch (unidad) {
-            case "C" , "c" -> {
+    if (unidad.equalsIgnoreCase("c") || unidad.equalsIgnoreCase("f")) {
+        System.out.println("Introduce la temperatura a convertir: ");
+        temperatura = entrada.nextFloat();
+    }
 
+        switch (unidad.toUpperCase()) {
+            case "C"  -> {
+                float tempConversion = (temperatura -32) * 5/9;
+                System.out.println(temperatura + "º Fahrenheit son " + tempConversion + "º Celsius");
             }
-            case "F", "f" -> {
-
+            case "F" -> {
+                float tempConversion = (temperatura *9/5) + 32;
+                System.out.println(temperatura + "º Celsius son " + tempConversion + "º Fahrenheit");
             }
             default -> {
                 System.out.println("La unidad introducida no es valida");
             }
         }
+    }
+
+
+    void ejercicio10() {
+        float precio, total =0, pago;
+        Scanner entrada = new Scanner(System.in);
+        char respuesta = 'S';
+        String teclado = "";
+
+        do {
+            do {
+                System.out.println("Introduce el precio del articulo: ");
+                precio = entrada.nextFloat();
+            } while (precio <= 0);
+            total += precio;
+            do {
+                System.out.println("Hay mas articulos en la cesta?: ");
+                teclado = entrada.next().toUpperCase();
+                respuesta = teclado.charAt(0);
+
+            } while ((respuesta !='S' && respuesta != 'N') || teclado.length() > 1);
+        } while (respuesta == 'S');
+
+        do {
+            System.out.println("Introduce el pago: ");
+            pago = entrada.nextFloat();
+
+        } while (pago < total);
+
+        System.out.println("El total a pagar son " + total + "$, el cliente entrega " + pago + "$ por lo que el cambio es de " + (pago - total) + "$");
+        entrada.close();
     }
 
